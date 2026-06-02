@@ -1,0 +1,387 @@
+# Build a Cinematic Scroll-Controlled 3D Landing Page
+
+## Goal
+
+Create a premium, cinematic, highly-performant landing page using:
+
+* Next.js 15+
+* React Three Fiber (R3F)
+* Three.js
+* GSAP + ScrollTrigger
+* Framer Motion (optional for UI)
+* Tailwind CSS
+
+The page should feel like a luxury digital art experience rather than a normal website.
+
+---
+
+# Visual Theme
+
+Background:
+
+* Pure black void
+* Deep-space atmosphere
+* Sparse galaxy particles
+* Subtle volumetric fog
+* Tiny distant stars
+* No visible horizon
+* High contrast cinematic lighting
+
+Color Palette:
+
+* Black: #000000
+* Neon Blue: #00D4FF
+* Electric Cyan: #39E7FF
+* Neon White: #FFFFFF
+
+---
+
+# Scene Structure
+
+The entire experience happens in one continuous scene.
+
+Sections are revealed through scrolling.
+
+Use ScrollTrigger to drive all animations.
+
+---
+
+# Stage 1: Initial Load
+
+Camera:
+
+* Fixed frontal view
+* Slight cinematic perspective
+* Smooth floating motion
+
+Text:
+
+LOREM IPSUM
+
+Large center-aligned heading.
+
+Typography:
+
+* Extruded 3D text
+* Premium modern font
+* Thick geometry
+* Sharp edges
+
+Initial State:
+
+Every letter starts above the viewport.
+
+Example:
+
+L
+O
+R
+E
+M
+
+All positioned vertically off-screen.
+
+---
+
+# Stage 2: Letter Drop Animation
+
+On page load:
+
+Letters fall individually from the top.
+
+Requirements:
+
+* Sequential timing
+* Slight delay between letters
+* Physics-inspired easing
+* Small bounce on landing
+* Tiny camera shake on impact
+
+Order:
+
+L
+O
+R
+E
+M
+
+then
+
+I
+P
+S
+U
+M
+
+Each letter settles into the final heading position.
+
+---
+
+# Stage 3: Scroll Begins
+
+As user scrolls:
+
+A realistic spray paint can enters from top center.
+
+Requirements:
+
+* Fully modeled 3D spray can
+* Metallic body
+* Slight reflections
+* Rotates naturally
+
+The can follows a predefined spline path.
+
+---
+
+# Stage 4: Neon Paint Reveal
+
+While scrolling:
+
+The spray can paints the text.
+
+Implementation:
+
+Create a shader-based reveal mask.
+
+Before painting:
+
+* Text appears dark metallic
+* Almost invisible
+
+As spray passes:
+
+* Neon blue paint appears
+* Paint reveal follows spray position
+* Surface gradually fills
+
+Not a simple opacity animation.
+
+Must feel like actual paint deposition.
+
+---
+
+# Stage 5: Edge Illumination
+
+Immediately after paint reaches an area:
+
+Neon white light travels along text edges.
+
+Requirements:
+
+* Animated emissive outline
+* Border glow propagation
+* Moving light streak
+
+Effect:
+
+Like electricity flowing around the letter contours.
+
+Use custom shader or postprocessing.
+
+---
+
+# Stage 6: Particle Spray System
+
+Spray can emits:
+
+* Paint particles
+* Mist particles
+* Tiny sparks
+
+Particle behavior:
+
+* Velocity-based
+* GPU particles preferred
+* Fade naturally
+* Motion blur effect
+
+Performance target:
+
+60 FPS.
+
+---
+
+# Stage 7: Galaxy Interaction
+
+While text becomes painted:
+
+Nearby galaxy particles react.
+
+Behavior:
+
+* Subtle attraction
+* Blue illumination
+* Energy ripple effect
+
+The text should feel like an energy source activating.
+
+---
+
+# Stage 8: Full Text Activation
+
+At ~70% scroll:
+
+Text fully painted.
+
+State:
+
+* Bright neon blue surface
+* White glowing edges
+* Bloom effect
+* Reflections
+* Floating energy particles
+
+This should be the visual climax.
+
+---
+
+# Stage 9: Spray Can Descent
+
+Continue scrolling.
+
+Spray can:
+
+* Finishes painting
+* Slowly descends vertically
+* Moves to exact screen center
+* Rotates to face viewer
+
+Background darkens further.
+
+Particles gather around can.
+
+Build anticipation.
+
+---
+
+# Stage 10: Energy Charge-Up
+
+Before explosion:
+
+Can begins charging.
+
+Effects:
+
+* Pulsing blue light
+* Increasing glow intensity
+* Orbiting particles
+* Light distortion
+* Camera vibration
+
+Duration:
+
+~2 seconds scroll-controlled.
+
+---
+
+# Stage 11: Neon Firework Explosion
+
+At final scroll point:
+
+Can explodes into a massive energy burst.
+
+NOT a realistic fire explosion.
+
+Instead:
+
+* Neon blue explosion
+* Cyan plasma rings
+* White energy streaks
+* Galaxy shockwave
+* Volumetric particle bloom
+
+Visual references:
+
+* Tron
+* Arcane magical effects
+* Sci-fi energy detonation
+
+Requirements:
+
+* Multiple particle layers
+* Expanding rings
+* Bloom
+* Light flash
+
+---
+
+# Stage 12: Fade Out
+
+After explosion:
+
+* Particles dissolve
+* Glow fades
+* Text slowly disappears
+* Galaxy returns to darkness
+
+Final frame:
+
+Pure black void.
+
+---
+
+# Technical Requirements
+
+Use:
+
+* React Three Fiber
+* Drei
+* GSAP ScrollTrigger
+* Postprocessing
+
+Postprocessing:
+
+* Bloom
+* Chromatic Aberration (subtle)
+* Depth of Field
+* Vignette
+
+Avoid:
+
+* Heavy CPU particle systems
+* DOM-based animations
+* Excessive React rerenders
+
+Use:
+
+* InstancedMesh
+* GPU particles
+* Memoization
+* Shader materials
+
+---
+
+# Scroll Architecture
+
+0–20% Scroll:
+Letter drops
+
+20–60% Scroll:
+Paint reveal
+
+60–80% Scroll:
+Edge glow activation
+
+80–90% Scroll:
+Can descent
+
+90–100% Scroll:
+Charge-up and explosion
+
+---
+
+# Deliverables
+
+1. Complete folder structure
+2. Component architecture
+3. Three.js scene organization
+4. GLSL shaders
+5. ScrollTrigger integration
+6. Optimized particle system
+7. Responsive behavior
+8. Mobile fallback strategy
+9. Performance optimizations
+10. Production-ready implementation
+
+The final result should resemble a premium interactive digital art installation rather than a conventional website.
