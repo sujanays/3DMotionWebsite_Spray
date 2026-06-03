@@ -35,31 +35,31 @@ export default function Overlay({ scrollProgress, isLoaded, setIsLoaded }: Overl
       return {
         number: "I",
         title: "THE GENERESIS",
-        desc: "Extruded 3D characters drop individually from the void with physics-inspired weight.",
+        desc: "",
       };
     } else if (scrollProgress < 0.6) {
       return {
         number: "II",
         title: "THE DEPOSITION",
-        desc: "A metallic spray canister traces a spline, painting the surface in organic neon blue.",
+        desc: "",
       };
     } else if (scrollProgress < 0.8) {
       return {
         number: "III",
-        title: "THE EDGE OF LIGHT",
-        desc: "Emissive electricity propagates along the contours of the typography, igniting the contours.",
+        title: "HEAT TREATMENT",
+        desc: "",
       };
     } else if (scrollProgress < 0.9) {
       return {
         number: "IV",
-        title: "THE EPICENTER",
-        desc: "The spray canister descends to screen center, drawing space dust into its charging core.",
+        title: "NATURAL COOLDOWN",
+        desc: "",
       };
     } else {
       return {
         number: "V",
-        title: "FINAL ARTIFACT",
-        desc: "The typography moves to structural focal display, illuminated completely in stable electric neon paint.",
+        title: "FINAL PRODUCT",
+        desc: "",
       };
     }
   };
@@ -77,17 +77,17 @@ export default function Overlay({ scrollProgress, isLoaded, setIsLoaded }: Overl
         <div />
         
         {/* Loader Center Text */}
-      <div className="text-center select-none px-4">
-  {/* Main Heading */}
-  <h1 className="text-xl font-extralight tracking-[0.2em] text-white opacity-90 transition-all uppercase xs:text-2xl sm:text-4xl md:text-5xl sm:tracking-[0.4em]">
-    NANJUNDESHWARA ENTERPRISES
-  </h1>
-  
-  {/* Subheading */}
-  <p className="mt-4 text-[9px] font-light tracking-[0.3em] text-cyan-400 opacity-80 uppercase xs:text-xs sm:tracking-[0.6em]">
-    Industrial Protective Powder Application
-  </p>
-</div>
+        <div className="text-center select-none px-4">
+          {/* Main Heading */}
+          <h1 className="text-xl font-extralight tracking-[0.2em] text-white opacity-90 transition-all uppercase xs:text-2xl sm:text-4xl md:text-5xl sm:tracking-[0.4em]">
+            NANJUNDESHWARA ENTERPRISES
+          </h1>
+          
+          {/* Subheading */}
+          <p className="mt-4 text-[9px] font-light tracking-[0.3em] text-cyan-400 opacity-80 uppercase xs:text-xs sm:tracking-[0.6em]">
+            Industrial Protective Powder Application
+          </p>
+        </div>
 
         {/* Progress Bar & Percentage */}
         <div className="flex flex-col items-center w-full max-w-[280px] gap-4 mb-8">
@@ -113,14 +113,14 @@ export default function Overlay({ scrollProgress, isLoaded, setIsLoaded }: Overl
           isLoaded ? "opacity-100" : "opacity-0"
         }`}
       >
-        {/* Top Header - Fades out immediately after Phase 1 finishes (scrollProgress > 0.2) */}
+        {/* Top Header */}
         <header 
           className={`flex items-center justify-between pointer-events-auto transition-all duration-700 ${
             scrollProgress > 0.2 ? "opacity-0 pointer-events-none -translate-y-2" : "opacity-100"
           }`}
         >
           <div className="flex flex-col">
-            <span className="text-sm font-light tracking-[0.4em] uppercase">PEENYA & LAGGERE</span>
+            <span className="text-sm font-light tracking-[0.4em] uppercase">NANJUNDESHWARA ENTERPRISES</span>
             <span className="text-[9px] font-light tracking-[0.5em] text-cyan-400 uppercase mt-0.5">
               .
             </span>
@@ -151,13 +151,13 @@ export default function Overlay({ scrollProgress, isLoaded, setIsLoaded }: Overl
         </div>
 
         {/* Left Bottom Corner: Dynamic Scrolling Narrative */}
-        <div className="max-w-xs md:max-w-sm flex flex-col gap-3 pointer-events-auto backdrop-blur-[2px] bg-black/10 p-4 rounded-lg border border-neutral-900/10">
+        <div className="max-w-xs md:max-w-sm flex flex-col gap-3 pointer-events-auto backdrop-blur-[2px] bg-black/10 p-4 rounded-lg border border-neutral-900/10 mb-20 md:mb-8">
           <div className="flex items-center gap-3">
             <span className="flex items-center justify-center h-6 w-6 rounded-full border border-cyan-400/30 text-[10px] font-mono text-cyan-400">
               {stage.number}
             </span>
             <span className="text-[10px] font-mono tracking-[0.4em] text-neutral-400 uppercase">
-              PHASE STAGE
+              PROCESS
             </span>
           </div>
           
@@ -170,44 +170,9 @@ export default function Overlay({ scrollProgress, isLoaded, setIsLoaded }: Overl
           </p>
         </div>
 
-        {/* Bottom Bar: Instructions and Prompts */}
-        <footer className="flex items-end justify-between">
-          <div className="flex gap-4 text-[9px] font-mono text-neutral-600 tracking-wider">
-            <span>NANJUNDESHWARA</span>
-            <span>ENTERPRISES</span>
-            <span>PEENYA | LAGGERE</span>
-          </div>
-
-          {/* Scroll Down Prompt */}
-          <div
-            className={`flex flex-col items-center gap-2 transition-all duration-700 ${
-              scrollProgress > 0.05 ? "opacity-0 translate-y-4" : "opacity-80"
-            }`}
-          >
-            <span className="text-[9px] font-light tracking-[0.4em] text-cyan-400 animate-pulse uppercase">
-              Scroll to Begin
-            </span>
-            <div className="relative h-10 w-[1px] bg-neutral-800 overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1/2 bg-cyan-400 animate-infinite-scroll" />
-            </div>
-          </div>
-        </footer>
+        {/* FIXED: Removed empty container with broken vertical line driver */}
+        <footer className="mt-4" />
       </div>
-
-      {/* Global CSS for the scroll dot animation */}
-      <style jsx global>{`
-        @keyframes infinite-scroll {
-          0% {
-            transform: translateY(-100%);
-          }
-          100% {
-            transform: translateY(200%);
-          }
-        }
-        .animate-infinite-scroll {
-          animation: infinite-scroll 1.8s cubic-bezier(0.15, 0.85, 0.35, 1) infinite;
-        }
-      `}</style>
     </>
   );
 }

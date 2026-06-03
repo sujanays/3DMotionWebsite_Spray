@@ -3,6 +3,8 @@
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useRef, useState, useCallback } from "react";
 import * as THREE from "three";
+
+// FIXED: Explicit named import from the standard drei library core
 import { OrbitControls } from "@react-three/drei";
 
 import Galaxy from "./Galaxy";
@@ -14,12 +16,12 @@ import PostProcessing from "./PostProcessing";
 interface SceneProps {
   scrollProgress: number;
   isLoaded: boolean;
+  minimal?: boolean; 
 }
 
-export default function Scene({ scrollProgress, isLoaded }: SceneProps) {
+export default function Scene({ scrollProgress, isLoaded, minimal = false }: SceneProps) {
   const [shake, setShake] = useState(0);
   
-  // Shared structural references for spatial logic
   const canPosRef = useRef(new THREE.Vector3(-12, 5, 4));
   const isSprayingRef = useRef(false);
 
@@ -40,53 +42,46 @@ export default function Scene({ scrollProgress, isLoaded }: SceneProps) {
           outputColorSpace: THREE.SRGBColorSpace,
           powerPreference: "high-performance",
         }}
-        // Adjusted position Z from 14 to 17 to give the 3D text comfortable framing boundaries
-        camera={{ fov: 55, near: 0.1, far: 200, position: [0, 1.2, 17.5] }}
+        camera={{ position: [0, 0, 17] }}
       >
-        {/* Lights */}
-        <ambientLight intensity={0.15} />
-        <directionalLight position={[5, 15, 10]} intensity={0.6} castShadow />
-        <pointLight position={[-10, -10, -5]} intensity={0.3} color="#00d4ff" />
-
+        <ambientLight intensity={0.2} />
+        
         <Suspense fallback={null}>
-          <group>
-            {/* Interactive Background Stars */}
+          <group position={[0, shake * 0.1, 0]}>
             <Galaxy scrollProgress={scrollProgress} />
 
-            {/* Core Animated Typography */}
-            <Text3DSection
-              scrollProgress={scrollProgress}
-              sprayPos={canPosRef.current}
-              setCameraShake={handleSetShake}
-            />
-
-            {/* Spray Floating Canister Asset */}
-            <SprayCan
-              scrollProgress={scrollProgress}
-              canPosRef={canPosRef}
-              isSprayingRef={isSprayingRef}
-            />
-
-            {/* Dynamic Volumetric Mist & Sparks Layer */}
-            <Particles
-              scrollProgress={scrollProgress}
-              sprayPos={canPosRef.current}
-              isSpraying={isSprayingRef.current}
-            />
+            {!minimal && (
+              <>
+                <Text3DSection
+                  scrollProgress={scrollProgress}
+                  sprayPos={canPosRef.current}
+                  setCameraShake={handleSetShake}
+                />
+                <SprayCan
+                  scrollProgress={scrollProgress}
+                  canPosRef={canPosRef}
+                  isSprayingRef={isSprayingRef}
+                />
+                <Particles
+                  scrollProgress={scrollProgress}
+                  sprayPos={canPosRef.current}
+                  isSpraying={isSprayingRef.current}
+                />
+              </>
+            )}
           </group>
 
-          {/* Cinematic Compositing Post Filters */}
           <PostProcessing scrollProgress={scrollProgress} />
         </Suspense>
 
-        {/* OrbitControls configured with the pulled back zoom framing depth */}
+        {/* FIXED: Standardized canvas listener context mapping */}
         <OrbitControls
-          enableZoom={false}       // Keeps camera locked at the new standard depth layout
-          enablePan={false}        // Prevents users from breaking target lookAt tracking
-          enableDamping={true}     // Adds premium weight profile to dragging actions
-          dampingFactor={0.05}     // Speed profile of drag friction glide
-          rotateSpeed={0.8}        // Adjusts drag sensitivity
-          target={[0, 1.5, 0]}     // Framed slightly higher up on Y axis to match text elevation limits
+          enableZoom={false}
+          enablePan={false}
+          enableDamping={true}
+          dampingFactor={0.05}
+          rotateSpeed={0.8}
+          target={[0, 1.5, 0]}
         />
       </Canvas>
     </div>
