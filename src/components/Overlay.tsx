@@ -131,7 +131,7 @@ export default function Overlay({ scrollProgress, isLoaded, setIsLoaded }: Overl
               href="#about"
               className="text-[10px] font-light tracking-widest text-neutral-400 hover:text-white transition-colors duration-300 hidden md:block"
             >
-              DIGITAL ART INSTALLATION
+              PEENYA & YESHWANTHPUR
             </a>
             <div className="flex h-1.5 w-1.5 rounded-full bg-cyan-400 animate-ping" />
           </div>

@@ -214,19 +214,33 @@ export default function ScrollCanvas() {
   return (
     <div ref={containerRef} className="relative w-full h-[900vh] bg-transparent">
       
-      {/* FIXED CONTAINER: Increased mobile padding-top (pt-24) to push text down from the screen edge */}
+      {/* FIXED VIEWPORT CONTAINER FOR MOBILE AND DESKTOP */}
       <div 
         className="
-          fixed inset-0 z-20 p-6 pt-32
-          flex flex-col items-center justify-start gap-4
-          md:justify-center md:gap-8 md:inset-0 md:fixed md:block pointer-events-none
+          fixed inset-0 z-20 p-6
+          flex flex-col items-center justify-center
+          md:block pointer-events-none
         "
       >
-        {/* TEXT CONTAINER: Shifted to min-h-[140px] to organically pull the canvas images closer */}
+        {/* IMAGE CANVAS CONTAINER: Placed dead center in the background on mobile layout */}
         <div 
           className="
-            w-full max-w-sm pointer-events-auto relative min-h-[140px]
-            md:fixed md:top-1/2 md:-translate-y-1/2 md:left-12 lg:left-16 md:max-w-md md:min-h-0 md:h-auto z-30
+            absolute inset-0 flex items-center justify-center w-full h-full p-4 z-10
+            md:fixed md:inset-auto md:top-1/2 md:-translate-y-1/2 md:right-8 lg:right-16 md:left-auto
+            md:w-[50vw] md:max-w-[50vw] md:max-h-[80vh] md:z-20
+          "
+        >
+          <canvas 
+            ref={canvasRef} 
+            className="w-full max-w-[85vw] max-h-[50vh] md:max-w-none md:max-h-none h-auto object-contain block bg-transparent pointer-events-auto"
+          />
+        </div>
+
+        {/* TEXT CONTAINER: Shifted on top of the image container with higher z-index (z-30) */}
+        <div 
+          className="
+            w-full max-w-sm pointer-events-auto relative min-h-[140px] z-30 mb-56
+            md:fixed md:top-1/2 md:-translate-y-1/2 md:left-12 lg:left-16 md:max-w-md md:min-h-0 md:h-auto md:mb-0
           "
         >
           {/* SEQUENCE 1 TEXT INTERLOCK */}
@@ -275,20 +289,6 @@ export default function ScrollCanvas() {
               <StoryOverlay beat={packBeatPlaceholder} progress={(scrollProgress - 0.70) / 0.30} />
             </div>
           )}
-        </div>
-
-        {/* IMAGE CANVAS CONTAINER */}
-        <div 
-          className="
-            w-full max-w-[85vw] max-h-[45vh] flex items-center justify-center
-            md:fixed md:top-1/2 md:-translate-y-1/2 md:right-8 lg:right-16 md:left-auto
-            md:w-[50vw] md:max-w-[50vw] md:max-h-[80vh] z-20 mt-0
-          "
-        >
-          <canvas 
-            ref={canvasRef} 
-            className="w-full h-auto object-contain block bg-transparent pointer-events-auto"
-          />
         </div>
       </div>
 
