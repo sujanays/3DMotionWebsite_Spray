@@ -77,14 +77,17 @@ export default function Overlay({ scrollProgress, isLoaded, setIsLoaded }: Overl
         <div />
         
         {/* Loader Center Text */}
-        <div className="text-center select-none">
-          <h1 className="text-4xl font-extralight tracking-[0.4em] text-white opacity-90 transition-all uppercase sm:text-5xl">
-            NANJUNDESHWARA ENTERPRISES
-          </h1>
-          <p className="mt-4 text-xs font-light tracking-[0.6em] text-cyan-400 opacity-80">
-            INDUSTRIAL PROTECTIVE POWDER APPLICATION 
-          </p>
-        </div>
+      <div className="text-center select-none px-4">
+  {/* Main Heading */}
+  <h1 className="text-xl font-extralight tracking-[0.2em] text-white opacity-90 transition-all uppercase xs:text-2xl sm:text-4xl md:text-5xl sm:tracking-[0.4em]">
+    NANJUNDESHWARA ENTERPRISES
+  </h1>
+  
+  {/* Subheading */}
+  <p className="mt-4 text-[9px] font-light tracking-[0.3em] text-cyan-400 opacity-80 uppercase xs:text-xs sm:tracking-[0.6em]">
+    Industrial Protective Powder Application
+  </p>
+</div>
 
         {/* Progress Bar & Percentage */}
         <div className="flex flex-col items-center w-full max-w-[280px] gap-4 mb-8">

@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LOREM IPSUM | Premium 3D Scroll Experience",
+  title: "NANJUNDESHWARA ENTERPRISES",
   description: "A luxury, cinematic, scroll-controlled 3D landing page showcasing state-of-the-art interactive digital art. Powered by React Three Fiber, Three.js, and GSAP.",
   keywords: ["Next.js", "React Three Fiber", "Three.js", "GSAP", "ScrollTrigger", "3D Web", "WebGL", "Digital Art"],
   authors: [{ name: "VKZ Studio", url: "https://vkz.studio" }],
