@@ -84,7 +84,7 @@ export default function Overlay({ scrollProgress, isLoaded, setIsLoaded }: Overl
           </h1>
           
           {/* Subheading */}
-          <p className="mt-4 text-[9px] font-light tracking-[0.3em] text-cyan-400 opacity-80 uppercase xs:text-xs sm:tracking-[0.6em]">
+          <p className="mt-4 text-[15px] font-light tracking-[0.3em] text-cyan-400 opacity-80 uppercase xs:text-xs sm:tracking-[0.6em]">
             Industrial Protective Powder Application
           </p>
         </div>
@@ -92,7 +92,7 @@ export default function Overlay({ scrollProgress, isLoaded, setIsLoaded }: Overl
         {/* Progress Bar & Percentage */}
         <div className="flex flex-col items-center w-full max-w-[280px] gap-4 mb-8">
           <div className="flex justify-between w-full text-[10px] font-mono tracking-widest text-neutral-500">
-            <span>INIT SYSTEM</span>
+            <span>REFILLING THE SPIRIT</span>
             <span className="text-cyan-400 font-medium">{loadingProgress}%</span>
           </div>
           <div className="relative h-[2px] w-full bg-neutral-900 overflow-hidden rounded-full">
@@ -102,7 +102,7 @@ export default function Overlay({ scrollProgress, isLoaded, setIsLoaded }: Overl
             />
           </div>
           <span className="text-[9px] font-light tracking-[0.3em] text-neutral-600 animate-pulse uppercase">
-            Loading GPU Assets
+            Just a moment
           </span>
         </div>
       </div>
