@@ -116,7 +116,7 @@ export default function Overlay({ scrollProgress, isLoaded, setIsLoaded }: Overl
         {/* Top Header */}
         <header 
           className={`flex items-center justify-between pointer-events-auto transition-all duration-700 ${
-            scrollProgress > 0.2 ? "opacity-0 pointer-events-none -translate-y-2" : "opacity-100"
+            scrollProgress > 0.2 ? "opacity-100 pointer-events-none -translate-y-2" : "opacity-100"
           }`}
         >
           <div className="flex flex-col">
