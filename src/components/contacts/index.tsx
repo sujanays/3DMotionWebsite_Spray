@@ -10,25 +10,26 @@ const Scene = dynamic(() => import("@/components/Scene"), { ssr: false });
 export default function ContactPage() {
   const contactData = [
   {
-    name: "Alex Thorne",
-    role: "Lead Technical Architect",
+    name: "Pavan U",
+    role: "Yeshwanthpur Branch",
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80",
-    phone: "+15550199",
-    whatsapp: "15550199",
-    // 📍 CHANGE THIS: Use the official /embed URL format from Google Maps
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.0148!2d77.4925!3d13.0148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDAwJzUzLjNfTiA3N8KwMjknMzMuMCJF!5e0!3m2!1sen!2sin!4v1700000000000",
-    mapLineUrl: "https://maps.google.com/?q=13.0148,77.4925"
+    phone: "+91 7829987528",
+    whatsapp: "+91 7829987528",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d290.72705848954354!2d77.49234158070166!3d13.014795978231101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1781757933133!5m2!1sen!2sin",
+    mapLineUrl: "https://maps.app.goo.gl/VrxgorH1DhT1fFz76"
+
+
   },
   {
-    name: "Marcus Vance",
-    role: "Operations Manager",
+    name: "Prashanth U",
+    role: "Peenya II Stage Branch",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format&fit=crop&q=80",
-    phone: "+442079460192",
-    whatsapp: "442079460192",
-    // 📍 CHANGE THIS: Use the official /embed URL format for the second location
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.5404!2d-0.1278!3d51.5074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDMwJzI2LjYiTiAwwrAwNyc0MC4xX1c!5e0!3m2!1sen!2suk!4v1700000000000",
-    mapLineUrl: "https://maps.google.com/?q=51.5074,-0.1278"
-  }
+    phone: "+91 7829100850",
+    whatsapp: "+91 7829100850",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d9302.621998881312!2d77.50131712371636!3d13.031940711980452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1781757674826!5m2!1sen!2sin",
+    mapLineUrl: "https://maps.app.goo.gl/Gs1uyLHPtcjA8vJ18"
+
+   }
 ];
 
   return (
